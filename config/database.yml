@@ -1,0 +1,21 @@
+common: &common
+  host: localhost
+  username: bugo
+  password:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: true
+  pool: 5
+  wait_timeout: 5
+
+development:
+  <<: *common
+  database: travel_blog_devel
+
+production:
+  <<: *common
+  database: travel_blog
+
+test:
+  <<: *common
+  database: travel_blog_devel_test
