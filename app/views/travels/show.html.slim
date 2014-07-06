@@ -1,0 +1,18 @@
+.col-md-12.travel
+  .header
+    h1
+      = markdown(@travel.name)
+    p
+      h4
+        = @travel.date.to_date.to_s(:db)
+    p
+      h5
+        = markdown(@travel.description)
+  .content
+    .days.row
+      - @travel.days.ordered.each do |day| 
+        .day-header.day.col-md-1
+          h4
+            = day.name   
+        .day-content
+          

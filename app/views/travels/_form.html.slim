@@ -1,0 +1,32 @@
+= form_for(@travel) do |f|
+  - if @travel.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@travel.errors.count, "error")
+        | prohibited this travel from being saved:
+
+      ul
+        - @travel.errors.full_messages.each do |message|
+          li = message
+  .form-group
+    .form-group.row
+      .col-md-2
+        = f.label :date, class: 'control-label'
+      .col-md-4
+        = f.date_select :date, class: "form-control"
+  
+    .form-group.row
+      .col-md-2
+        = f.label :name, class: 'control-label'
+      .col-md-4
+        = f.text_field :name, class: "form-control"
+  
+    .form-group.row
+      .col-md-2
+        = f.label :description, class: 'control-label'
+      .col-md-4
+        = f.text_area :description, class: "form-control"
+  
+    .actions.row
+      .col-md-offset-2.col-md-4
+        = f.submit class: 'btn btn-default'

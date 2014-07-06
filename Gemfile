@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.0'
+# ruby '2.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.2'
@@ -9,6 +9,7 @@ gem 'mysql2'
 gem 'slim'
 gem 'sass-rails',     '~> 4.0.3'
 gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier',       '>= 1.3.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -22,6 +23,7 @@ gem 'turbolinks'
 gem 'jbuilder',       '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'paperclip'
+gem 'redcarpet'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 group :development, :test do

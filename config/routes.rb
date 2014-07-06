@@ -1,9 +1,27 @@
 Rails.application.routes.draw do
+
+
+
+  resources :travels do
+    resources :days, name_prefix: 'travels_'
+  end
+
+  resources :days do
+    resources :travel_points, name_prefix: 'days_'  
+  end
+
+  resources :travel_points do
+    resources :articles, name_prefix: 'travel_points_'
+  end
+
+  resources :articles
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'travels#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

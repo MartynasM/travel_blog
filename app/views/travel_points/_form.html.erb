@@ -1,0 +1,37 @@
+<%= form_for(@travel_point) do |f| %>
+  <% if @travel_point.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@travel_point.errors.count, "error") %> prohibited this travel_point from being saved:</h2>
+
+      <ul>
+      <% @travel_point.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :day_id %><br>
+    <%= f.number_field :day_id %>
+  </div>
+  <div class="field">
+    <%= f.label :serial %><br>
+    <%= f.number_field :serial %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br>
+    <%= f.text_field :longitude %>
+  </div>
+  <div class="field">
+    <%= f.label :latitude %><br>
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

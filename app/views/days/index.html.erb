@@ -1,0 +1,28 @@
+<h1>Listing days</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Travel</th>
+      <th>Serial</th>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @days.each do |day| %>
+      <tr>
+        <td><%= day.travel_id %></td>
+        <td><%= day.serial %></td>
+        <td><%= day.name %><td>
+        <td><%= link_to 'Edit', edit_travel_day_path(@travel, day) %></td>
+        <td><%= link_to 'Destroy', travel_day_path(@travel, day), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Day', new_travel_day_path(@travel) %>

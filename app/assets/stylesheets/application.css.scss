@@ -10,6 +10,26 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.travel {
+  margin-top: 15px;
+  background-color: $gray-lighter;
+  border-color: $gray-light;
+  border-width: 1px;
+  border-style: solid;
+  padding: 0, 30, 30, 30;
+}
+
+.days{
+  padding: 10px;
+}
+
+.day {
+  border-color: $gray-light;
+  border-width: 1px;
+  border-style: solid;
+}
