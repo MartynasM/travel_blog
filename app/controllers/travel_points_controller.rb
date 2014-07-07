@@ -1,10 +1,11 @@
 class TravelPointsController < ApplicationController
+  before_action :set_day
   before_action :set_travel_point, only: [:show, :edit, :update, :destroy]
 
   # GET /travel_points
   # GET /travel_points.json
   def index
-    @travel_points = TravelPoint.all
+    @travel_points = @day.travel_points.ordered
   end
 
   # GET /travel_points/1
@@ -15,6 +16,8 @@ class TravelPointsController < ApplicationController
   # GET /travel_points/new
   def new
     @travel_point = TravelPoint.new
+    @travel_point.serial = @day.travel_points.select("max(serial) as serial").first.serial.to_i + 1
+    @travel_point.day = @day
   end
 
   # GET /travel_points/1/edit
@@ -25,14 +28,14 @@ class TravelPointsController < ApplicationController
   # POST /travel_points.json
   def create
     @travel_point = TravelPoint.new(travel_point_params)
+    @travel_point.day = @day
+
 
     respond_to do |format|
       if @travel_point.save
-        format.html { redirect_to @travel_point, notice: 'Travel point was successfully created.' }
-        format.json { render :show, status: :created, location: @travel_point }
+        format.html { redirect_to day_travel_points_path(@day), notice: 'Travel point was successfully created.' }
       else
         format.html { render :new }
-        format.json { render json: @travel_point.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -42,11 +45,9 @@ class TravelPointsController < ApplicationController
   def update
     respond_to do |format|
       if @travel_point.update(travel_point_params)
-        format.html { redirect_to @travel_point, notice: 'Travel point was successfully updated.' }
-        format.json { render :show, status: :ok, location: @travel_point }
+        format.html { redirect_to day_travel_points_path(@day), notice: 'Travel point was successfully updated.' }
       else
         format.html { render :edit }
-        format.json { render json: @travel_point.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -56,13 +57,16 @@ class TravelPointsController < ApplicationController
   def destroy
     @travel_point.destroy
     respond_to do |format|
-      format.html { redirect_to travel_points_url, notice: 'Travel point was successfully destroyed.' }
+      format.html { redirect_to day_travel_points_path(@day), notice: 'Travel point was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    def set_day
+      @day = Day.find(params[:day_id])
+    end
+
     def set_travel_point
       @travel_point = TravelPoint.find(params[:id])
     end

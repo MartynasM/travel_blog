@@ -2,31 +2,19 @@ class DaysController < ApplicationController
   before_action :set_travel  
   before_action :set_day, only: [:show, :edit, :update, :destroy]
 
-
-  # GET /days
-  # GET /days.json
   def index
     @days = Day.where(travel_id: params[:travel_id]).all
   end
 
-  # GET /days/1
-  # GET /days/1.json
-  def show
-  end
-
-  # GET /days/new
   def new
     @day = Day.new
     @day.serial = Day.select("max(serial) as serial").where(travel: @travel).first.serial.to_i + 1
     @day.name = "Day #{@day.serial}"
   end
 
-  # GET /days/1/edit
   def edit
   end
 
-  # POST /days
-  # POST /days.json
   def create
     @day = Day.new(day_params)
     @day.travel = @travel
@@ -40,8 +28,6 @@ class DaysController < ApplicationController
     end
   end
 
-  # PATCH/PUT /days/1
-  # PATCH/PUT /days/1.json
   def update
     respond_to do |format|
       if @day.update(day_params)
@@ -52,8 +38,6 @@ class DaysController < ApplicationController
     end
   end
 
-  # DELETE /days/1
-  # DELETE /days/1.json
   def destroy
     @day.destroy
     respond_to do |format|
@@ -70,7 +54,6 @@ class DaysController < ApplicationController
       @travel = Travel.find(params[:travel_id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def day_params
       params.require(:day).permit(:travel_id, :serial, :name)
     end

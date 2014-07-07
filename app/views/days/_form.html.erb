@@ -1,4 +1,4 @@
-<%= form_for(@day, url: travel_days_path(@travel)) do |f| %>
+<%= form_for(@day, url: correct_url(params)) do |f| %>
   <% if @day.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@day.errors.count, "error") %> prohibited this day from being saved:</h2>

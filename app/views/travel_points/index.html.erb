@@ -20,9 +20,8 @@
         <td><%= travel_point.longitude %></td>
         <td><%= travel_point.latitude %></td>
         <td><%= travel_point.name %></td>
-        <td><%= link_to 'Show', travel_point %></td>
-        <td><%= link_to 'Edit', edit_travel_point_path(travel_point) %></td>
-        <td><%= link_to 'Destroy', travel_point, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_day_travel_point_path(@day, travel_point) %></td>
+        <td><%= link_to 'Destroy', day_travel_point_path(@day, travel_point), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Travel point', new_travel_point_path %>
+<%= link_to 'New Travel point', new_day_travel_point_path(@day) %>
