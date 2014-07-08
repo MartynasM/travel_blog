@@ -1,7 +1,7 @@
 common: &common
   host: localhost
-  username: root
-  password: brazauskas
+  username: bugo
+  password:
   adapter: mysql2
   encoding: utf8
   reconnect: true
