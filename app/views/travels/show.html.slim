@@ -8,15 +8,10 @@
     p
       h5
         = markdown(@travel.description)
+
+.col-md-12.travel
   #tabs
-    .days.row
-      ul
-        - @travel.days.ordered.each do |day|
-          li
-            a href="#day_#{day.id}"
-              .day-header.day_title.col-md-1
-                h4
-                  = day.name
+    = render partial: 'day_selector'
     - @travel.days.ordered.each do |day|
       - next if day.travel_points.count == 0
       .day id="day_#{day.id}"

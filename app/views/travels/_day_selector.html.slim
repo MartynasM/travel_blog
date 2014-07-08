@@ -1,0 +1,8 @@
+.days.row
+  ul
+    - @travel.days.ordered.each_with_index do |day, i|
+      li
+        a href="#day_#{day.id}"
+          .day-header.day_title.col-md-1
+            h4
+              = day.name

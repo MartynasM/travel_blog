@@ -20,6 +20,7 @@
   border-color: $gray-light;
   border-width: 1px;
   border-style: solid;
+  border-top-style: none;
   padding: 0, 30, 30, 30;
   vertical-align:text-top;
 }
@@ -32,19 +33,37 @@
   border-color: $gray-light;
   border-width: 1px;
   border-style: solid;
+  border-top-style: none;
+  border-bottom-style: none;
+  .subsequent{
+    border-right-style: none;
+  }
 }
 .travel_point_content{
   border-color: $gray-light;
   border-width: 1px;
   border-style: solid;
+  border-bottom-style: none;
   margin: 0px 5px 0px 5px;
   padding: 5px
 }
-.travel_point h3{
+
+.travel_point h3 {
   margin-top: 0;
 }
-ul
-{
+ul {
     list-style-type: none;
     padding: 0px;
+}
+hr {
+  -moz-border-bottom-colors: none;
+  -moz-border-image: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  border-color: $gray-light -moz-use-text-color $gray-light;
+  border-style: solid none;
+  border-bottom-style: none;
+  border-width: 1px 0;
+  margin: 0px
 }

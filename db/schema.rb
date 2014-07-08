@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140706203519) do
+ActiveRecord::Schema.define(version: 20140708162049) do
 
   create_table "articles", force: true do |t|
-    t.integer  "point_id"
+    t.integer  "travel_point_id"
     t.integer  "serial"
     t.string   "name"
     t.text     "content"
@@ -28,6 +28,19 @@ ActiveRecord::Schema.define(version: 20140706203519) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "pictures", force: true do |t|
+    t.string   "title"
+    t.integer  "owner_id"
+    t.string   "owner_type"
+    t.integer  "serial"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
   end
 
   create_table "travel_points", force: true do |t|

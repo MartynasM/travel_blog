@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 
 
+  resources :pictures
+
   resources :travels do
     resources :days, name_prefix: 'travels_'
   end

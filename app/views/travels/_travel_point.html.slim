@@ -1,7 +1,7 @@
-.travel_point_content.row
-  .travel_point.col-md-1
+.travel_point_content.row.col-md-9
+  .travel_point.col-md-2
     h3
       = travel_point.serial
-  .article.col-md-8
+  .article.col-md-10
     - travel_point.articles.ordered.each do |article|
       = render partial: 'article', locals: { article: article }
