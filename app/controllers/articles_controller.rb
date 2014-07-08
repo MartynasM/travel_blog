@@ -3,12 +3,13 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def index
-    @articles = @travel_point.articles
+    @articles = @travel_point.articles.ordered
   end
 
   def new
     @article = Article.new
     @article.travel_point = @travel_point
+    @article.serial = @travel_point.articles.select("max(serial) as serial").first.serial.to_i + 1
   end
 
   def edit
@@ -20,7 +21,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to travel_point_articles(@travel_point), notice: 'Article was successfully created.' }
+        format.html { redirect_to travel_point_articles_path(@travel_point), notice: 'Article was successfully created.' }
       else
         format.html { render :new }
       end
@@ -30,7 +31,7 @@ class ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
-        format.html { redirect_to travel_point_articles(@travel_point), notice: 'Article was successfully updated.' }
+        format.html { redirect_to travel_point_articles_path(@travel_point), notice: 'Article was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -40,7 +41,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
     respond_to do |format|
-      format.html { redirect_to travel_point_articles(@travel_point), notice: 'Article was successfully destroyed.' }
+      format.html { redirect_to travel_point_articles_path(@travel_point), notice: 'Article was successfully destroyed.' }
     end
   end
 
@@ -54,6 +55,6 @@ class ArticlesController < ApplicationController
     end
 
     def article_params
-      params.require(:article).permit(:point_id, :serial, :name, :content)
+      params.require(:article).permit(:travel_point_id, :serial, :name, :content)
     end
 end

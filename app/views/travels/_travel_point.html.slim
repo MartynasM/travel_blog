@@ -1,0 +1,7 @@
+.travel_point_content.row
+  .travel_point.col-md-1
+    h3
+      = travel_point.serial
+  .article.col-md-8
+    - travel_point.articles.ordered.each do |article|
+      = render partial: 'article', locals: { article: article }

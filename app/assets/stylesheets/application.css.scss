@@ -16,20 +16,35 @@
 @import "bootstrap";
 
 .travel {
-  margin-top: 15px;
   background-color: $gray-lighter;
   border-color: $gray-light;
   border-width: 1px;
   border-style: solid;
   padding: 0, 30, 30, 30;
+  vertical-align:text-top;
 }
 
 .days{
-  padding: 10px;
+  margin: 0px 5px 0px 5px;
 }
 
-.day {
+.day_title {
   border-color: $gray-light;
   border-width: 1px;
   border-style: solid;
+}
+.travel_point_content{
+  border-color: $gray-light;
+  border-width: 1px;
+  border-style: solid;
+  margin: 0px 5px 0px 5px;
+  padding: 5px
+}
+.travel_point h3{
+  margin-top: 0;
+}
+ul
+{
+    list-style-type: none;
+    padding: 0px;
 }

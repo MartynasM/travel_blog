@@ -1,9 +1,9 @@
 class DaysController < ApplicationController
-  before_action :set_travel  
+  before_action :set_travel
   before_action :set_day, only: [:show, :edit, :update, :destroy]
 
   def index
-    @days = Day.where(travel_id: params[:travel_id]).all
+    @days = @travel.days.ordered
   end
 
   def new

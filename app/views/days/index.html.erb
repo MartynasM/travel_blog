@@ -1,6 +1,6 @@
 <h1>Listing days</h1>
 
-<table>
+<table class='table table-striped'>
   <thead>
     <tr>
       <th>Travel</th>
@@ -16,6 +16,7 @@
         <td><%= day.travel_id %></td>
         <td><%= day.serial %></td>
         <td><%= day.name %><td>
+        <td><%= link_to "Travel point (#{day.travel_points.count})", day_travel_points_path(day) %><td>
         <td><%= link_to 'Edit', edit_travel_day_path(@travel, day) %></td>
         <td><%= link_to 'Destroy', travel_day_path(@travel, day), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

@@ -1,5 +1,3 @@
 <h1>New day</h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', days_path %>
+<%= render(partial: 'form', locals: { url: travel_days_path(@travel) }) %>

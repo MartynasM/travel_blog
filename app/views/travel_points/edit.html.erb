@@ -1,5 +1,5 @@
 <h1>Editing travel_point</h1>
 
-<%= render 'form' %>
+<%= render(partial: 'form', locals: { url: day_travel_point_path(@day, @travel_point) }) %>
 
-<%= link_to 'Travel point', travel_point_articles_path(@travel_point) %>
+<%= link_to 'Articles', travel_point_articles_path(@travel_point) %>

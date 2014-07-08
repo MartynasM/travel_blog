@@ -1,0 +1,7 @@
+- if article.name.present?
+  .row
+    h4
+      = markdown(article.name)
+- if article.content.present?
+  .row
+    = markdown(article.content)

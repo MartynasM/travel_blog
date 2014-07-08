@@ -1,6 +1,6 @@
 <h1>Listing travel_points</h1>
 
-<table>
+<table class='table table-striped'>
   <thead>
     <tr>
       <th>Day</th>
@@ -20,6 +20,7 @@
         <td><%= travel_point.longitude %></td>
         <td><%= travel_point.latitude %></td>
         <td><%= travel_point.name %></td>
+        <td><%= link_to "Articles (#{travel_point.articles.count})", travel_point_articles_path(travel_point) %></td>
         <td><%= link_to 'Edit', edit_day_travel_point_path(@day, travel_point) %></td>
         <td><%= link_to 'Destroy', day_travel_point_path(@day, travel_point), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
