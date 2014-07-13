@@ -12,7 +12,7 @@ class PicturesController < ApplicationController
   def new
     @picture = Picture.new
     @picture.owner = @article
-    @articles.pictures.select("max(serial) as serial").first.serial.to_i + 1
+    @article.pictures.select("max(serial) as serial").first.serial.to_i + 1
   end
 
   def edit
@@ -50,14 +50,14 @@ class PicturesController < ApplicationController
 
   private
     def set_article
-      @picture = Article.find(params[:article_id])
+      @article = Article.find(params[:article_id])
     end
 
     def set_picture
-      @picture = @article.pictures.where(id: params[:id])
+      @picture = @article.pictures.where(id: params[:id]).first
     end
 
     def picture_params
-      params.require(:picture).permit(:title)
+      params.require(:picture).permit(:title, :file)
     end
 end

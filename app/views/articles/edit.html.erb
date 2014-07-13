@@ -2,5 +2,4 @@
 
 <%= render(partial: 'form', locals: {url: travel_point_article_path(@travel_point, @article) }) %>
 
-<%= link_to 'Show', @article %> |
-<%= link_to 'Back', articles_path %>
+<%= link_to 'Pictures', article_pictures_path(@article) %>

@@ -2,6 +2,17 @@
   .row
     h4
       = markdown(article.name)
+- if (pics = article.pictures).present?
+  .row.article_pictures
+    - pics.each do |picture|
+      .col-md-2.article_pictures
+        - thumb_img = image_tag(picture.file.url(:thumb))
+        - big_img_path = path_to_image(picture.file.url(:original))
+        = link_to(thumb_img, big_img_path, class: 'fancybox', rel: "galery_#{article.id}")
 - if article.content.present?
   .row
     = markdown(article.content)
+javascript: 
+  jQuery(function() {
+    $(".fancybox").fancybox();
+  });

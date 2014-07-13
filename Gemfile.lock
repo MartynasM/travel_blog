@@ -50,6 +50,8 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.2.1)
+    fancybox-rails (0.2.1)
+      railties (>= 3.1.0)
     ffi (1.9.3)
     formatador (0.2.5)
     guard (2.6.1)
@@ -187,6 +189,7 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass (~> 3.2.0)
+  fancybox-rails
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails

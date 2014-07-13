@@ -1,5 +1,4 @@
 <h1>New picture</h1>
 
-<%= render 'form' %>
+<%= render(partial: 'form', locals: { url: article_pictures_path(@article) }) %>
 
-<%= link_to 'Back', pictures_path %>
