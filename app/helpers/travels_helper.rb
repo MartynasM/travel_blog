@@ -4,6 +4,6 @@ module TravelsHelper
   end
 
   def markdown(text)
-  	 raw renderer.render(text)
+  	 raw renderer.render(text)[3..-6]
   end
 end

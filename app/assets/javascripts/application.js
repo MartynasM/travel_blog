@@ -13,7 +13,10 @@
 //= require jquery
 //= require fancybox
 //= require jquery_ujs
-//= require jquery-ui/tabs
+//= require jquery-ui/tooltip
+//= require jquery-ui/datepicker
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require editable/jqueryui-editable
+//= require editable/rails
 //= require_tree .

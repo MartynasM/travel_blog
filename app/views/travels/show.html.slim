@@ -1,21 +1,21 @@
 .col-md-12.travel
   .header
-    h1
+    h1#travel_name
       = markdown(@travel.name)
     p
-      h4
+      h4#travel_time
         = @travel.date.to_date.to_s(:db)
     p
       h5
-       .col-md-9
+       .col-md-9#travel_description
         = markdown(@travel.description)
 
 .col-md-12.travel
-  #tabs
+  .tab-content
     = render partial: 'day_selector'
     - @travel.days.ordered.each do |day|
       - next if day.travel_points.count == 0
-      .day id="day_#{day.id}"
+      .tab-pane id="day_#{day.id}"
         - day.travel_points.ordered.each do |travel_point|
           - next if travel_point.articles.count == 0
           = render partial: 'travel_point', locals: { travel_point: travel_point}
