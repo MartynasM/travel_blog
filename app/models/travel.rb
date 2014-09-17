@@ -6,4 +6,5 @@ class Travel < ActiveRecord::Base
   def create_dependencies
     days.create(serial: 1, name: 'Day 1')
   end
+
 end

@@ -1,7 +1,7 @@
 .col-md-12.travel
   .header
     h1#travel_name
-      = markdown(@travel.name)
+      = editable @travel, :name
     p
       h4#travel_time
         = @travel.date.to_date.to_s(:db)

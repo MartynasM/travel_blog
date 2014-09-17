@@ -12,11 +12,11 @@ $(function() {
   $('#tabs a:last').tab('show');
 
 
-  $('#travel_name').editable({
-    type: 'text',
-    mode: 'inline',
-    name: 'name'
-  });
+  // $('#travel_name').editable({
+  //   type: 'text',
+  //   mode: 'inline',
+  //   name: 'name'
+  // });
   $('#travel_time').editable({
     type: 'date',
     mode: 'inline',

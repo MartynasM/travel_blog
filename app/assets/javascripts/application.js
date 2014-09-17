@@ -17,6 +17,7 @@
 //= require jquery-ui/datepicker
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require jquery.turbolinks
 //= require editable/jqueryui-editable
 //= require editable/rails
 //= require_tree .
